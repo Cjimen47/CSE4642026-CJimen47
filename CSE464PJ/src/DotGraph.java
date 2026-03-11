@@ -1,9 +1,6 @@
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import org.jgrapht.alg.interfaces.ShortestPathAlgorithm.SingleSourcePaths;
 import org.jgrapht.alg.interfaces.StrongConnectivityAlgorithm;
@@ -11,11 +8,11 @@ import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.Graph;
+import org.jgrapht.nio.Attribute;
+import org.jgrapht.nio.DefaultAttribute;
+import org.jgrapht.nio.dot.DOTExporter;
 import org.jgrapht.traverse.DepthFirstIterator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -102,6 +99,46 @@ public class DotGraph {
     }
 
     //******* Feature 4 *******///
+    public String outputDOTGraph(String path){
+        String output = null;
+        StringWriter writer = new StringWriter();
+
+        //Output imported graph into a DOT file
+        DOTExporter<String, DefaultEdge> exporter = new DOTExporter<>();
+        exporter.setVertexAttributeProvider((v) -> {
+            Map<String, Attribute> map = new LinkedHashMap<>();
+            map.put("label", DefaultAttribute.createAttribute(v.toString()));
+            return map;
+        });
+
+        try{
+            exporter.exportGraph(dotGraph, writer);
+            output = writer.toString();
+
+            FileWriter myWriter = new FileWriter(path);
+            myWriter.write(output);
+            myWriter.close();
+        } catch (IOException e){
+            System.out.println("An error occurred while writing to file.");
+            e.printStackTrace();
+        }
+        System.out.print("Graph has been output into a file");
+
+        return output;
+    }
+
+    public void outputGraphics(String path, String format){
+        //Output imported graph into a graphics
+        GraphViz gv = new GraphViz();
+        gv.add(outputDOTGraph(path));
+        gv.decreaseDpi();
+        gv.decreaseDpi();
+        File out = new File(path + "." + format);
+        gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), format ), out );
+
+    }
+
+
 
 
 
