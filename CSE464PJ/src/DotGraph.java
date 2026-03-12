@@ -91,8 +91,14 @@ public class DotGraph {
     }
 
     //******* Feature 3 *******///
-    public void addEdge(String srcLabel, String dstLabel){
+    public String addEdge(String srcLabel, String dstLabel){
         //Add an edge and check for duplicate labels
+        if(dotGraph.addEdge(srcLabel, dstLabel) != null){
+            return "Source " + srcLabel + " and Destination " + dstLabel + " have been successfully added as an edge.";
+        }
+        else{
+            return "Source " + srcLabel + " and Destination " + dstLabel + " already exists as an edge.";
+        }
     }
 
     //******* Feature 4 *******///
