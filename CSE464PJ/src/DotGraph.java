@@ -97,10 +97,10 @@ public class DotGraph {
     public String addEdge(String srcLabel, String dstLabel){
         //Add an edge and check for duplicate labels
         if(dotGraph.addEdge(srcLabel, dstLabel) != null){
-            return "Source " + srcLabel + "and Destination " + dstLabel + " have been successfully added as an edge.";
+            return "Source " + srcLabel + " and Destination " + dstLabel + " have been successfully added as an edge.";
         }
         else{
-            return "Source " + srcLabel + "and Destination " + dstLabel + " already exists as an edge.";
+            return "Source " + srcLabel + " and Destination " + dstLabel + " already exists as an edge.";
         }
     }
 
