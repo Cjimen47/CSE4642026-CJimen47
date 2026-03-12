@@ -82,12 +82,30 @@ public class DotGraph {
     }
 
     //******* Feature 2 *******///
-    public void addNode(String label){
+    public String addNode(String label){
         //Add a node and check for duplicate labels
+        if(dotGraph.addVertex(label)){
+            return "Node " + label + "successfully added.";
+        }
+        else{
+            return "Node " + label + "already exists";
+        }
+
     }
 
-    public void addNodes(String label){
+    public String addNodes(String[] label){
         //Add a node and check for duplicate labels
+        StringBuilder result = new StringBuilder();
+        for (String s : label) {
+
+            if (dotGraph.addVertex(s)) {
+                result.append("Node ").append(s).append("successfully added.");
+            } else {
+                result.append("Node ").append(s).append("already exists. ");
+            }
+        }
+
+        return result.toString();
     }
 
     //******* Feature 3 *******///
