@@ -62,7 +62,7 @@ public class DotGraph {
 
     public String toString(){
         StringBuilder output = new StringBuilder("Number of Nodes: " + dotGraph.vertexSet().size() + "\n" +
-                "Label of Nodes: " + dotGraph.vertexSet() + "\n" +
+                "Label of Nodes: " + dotGraph.vertexSet().toString() + "\n" +
                 "Number of Edges: " + dotGraph.edgeSet().size() + "\n" +
                 "Nodes and Edge Direction of Edges: {\n");
 
@@ -76,7 +76,7 @@ public class DotGraph {
     public void outputGraph(String filepath){
         try{
             FileWriter myWriter = new FileWriter(filepath);
-            myWriter.write(dotGraph.toString());
+            myWriter.write(this.toString());
             myWriter.close();
         } catch (IOException e){
             System.out.println("An error occurred while writing to file.");
