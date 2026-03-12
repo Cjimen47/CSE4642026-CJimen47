@@ -100,7 +100,7 @@ public class GraphViz
     /**
      * Where is your dot program located? It will be called externally.
      */
-    private static String DOT = configFile.getProperty("dotFor" + osName);
+    private static String DOT = "dot";
 
     /**
      * The image size in dpi. 96 dpi is normal size. Higher values are 10% higher each.

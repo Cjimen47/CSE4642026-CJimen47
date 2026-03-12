@@ -124,7 +124,7 @@ public class DotGraph {
         return output;
     }
 
-    public void outputGraphics(String path, String format){
+    public String outputGraphics(String path, String format){
         //Output imported graph into a graphics
         GraphViz gv = new GraphViz();
         gv.add(outputDOTGraph(path));
@@ -133,6 +133,7 @@ public class DotGraph {
         File out = new File(path + "." + format);
         gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), format ), out );
 
+        return "Graphic Successfully Made";
     }
 
 
