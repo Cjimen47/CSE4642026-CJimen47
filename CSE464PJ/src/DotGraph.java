@@ -53,9 +53,6 @@ public class DotGraph {
                     //Add the edge
                     dotGraph.addEdge(matcher.group(1), matcher.group(2));
                 }
-                else{
-                    System.out.println("Match not found");
-                }
             }
             sc.close();
         }catch (FileNotFoundException e){
@@ -67,7 +64,7 @@ public class DotGraph {
         StringBuilder output = new StringBuilder("Number of Nodes: " + dotGraph.vertexSet().size() + "\n" +
                 "Label of Nodes: " + dotGraph.vertexSet() + "\n" +
                 "Number of Edges: " + dotGraph.edgeSet().size() + "\n" +
-                "Nodes and Edge Direction of Edges: \n");
+                "Nodes and Edge Direction of Edges: {\n");
 
         for (DefaultEdge curEdge : dotGraph.edgeSet()) {
             output.append(dotGraph.getEdgeSource(curEdge)).append("->").append(dotGraph.getEdgeTarget(curEdge)).append(";\n");
