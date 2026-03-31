@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="">
+    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Quick change to main class">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CSE4642026-CJimen47.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/DotGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/GraphViz.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/GraphViz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/test/output.dot" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/output.dot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +45,9 @@
     &quot;accountId&quot;: &quot;5c3c6e5e-53ee-42cd-a8a8-8cc3644c89f8&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -40,18 +58,65 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.CSE464-GraphManager [test].executor": "Run",
+    "Maven.CSE4642026-CJimen47 [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/coraljimenez-gudino/git/CSE4642026-CJimen47",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CSE464PJ/src/main/java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CSE4642026-CJimen47 [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.CSE4642026-CJimen47 [test]" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,11 +133,24 @@
       <option name="presentableId" value="Default" />
       <updated>1773197152583</updated>
       <workItem from="1773197160478" duration="96000" />
-      <workItem from="1774908169173" duration="2670000" />
+      <workItem from="1774908169173" duration="10428000" />
     </task>
+    <task id="LOCAL-00001" summary="Quick change to main class">
+      <option name="closed" value="true" />
+      <created>1774911402294</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774911402294</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Quick change to main class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quick change to main class" />
   </component>
 </project>

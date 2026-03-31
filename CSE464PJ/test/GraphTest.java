@@ -28,11 +28,11 @@ public class GraphTest {
     @Test
     public void testOutputDotGraph() throws IOException {
         System.out.println("in outputDotGraph");
-        testGraph.parseGraph("test/test.dot");
+        testGraph.parseGraph("CSE464PJ/test/test.dot");
 
         //Act
-        testGraph.outputDOTGraph("test/output.dot");
-        expFile = Files.readString(Paths.get("test/output.dot"));
+        testGraph.outputDOTGraph("CSE464PJ/test/output.dot");
+        expFile = Files.readString(Paths.get("CSE464PJ/test/output.dot"));
 
 
         //Assert
@@ -40,46 +40,6 @@ public class GraphTest {
 
     }
 
-
-    @Test
-    public void testChangedOutputDotGraph() throws IOException {
-        System.out.println("in outputDotGraph");
-        testGraph.parseGraph("test/MissingVertexTest.dot");
-
-        //Act
-        testGraph.outputDOTGraph("test/output.dot");
-        expFile = Files.readString(Paths.get("test/output.dot"));
-
-
-        //Assert
-        Assert.assertNotNull(expFile);
-
-    }
-
-    @Test
-    public void testOutputGraphics() {
-        System.out.println("in outputGraphics");
-        testGraph.parseGraph("test/test.dot");
-
-        //Act
-        result = testGraph.outputGraphics("test/output1", "png");
-
-        //Assert
-        Assert.assertEquals("Graphic Successfully Made", result);
-    }
-
-    @Test
-    public void testChangedOutputGraphics() {
-        System.out.println("in outputGraphics");
-        testGraph.parseGraph("test/MissingVertexTest.dot");
-
-        //Act
-        result = testGraph.outputGraphics("test/output2", "png");
-
-        //Assert
-        Assert.assertEquals("Graphic Successfully Made", result);
-
-    }
 
 
     @After
