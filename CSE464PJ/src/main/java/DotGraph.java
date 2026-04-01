@@ -160,6 +160,40 @@ public class DotGraph {
         return "Graphic Successfully Made";
     }
 
+    //******* Remove Edges and Nodes *******///
+    public String removeNode(String label){
+        if(dotGraph.removeVertex(label)){
+            return "Node " + label + "successfully removed.";
+        }
+        else{
+            return "Node " + label + "doesn't exists";
+        }
+    }
+
+    public String removeNodes(String[] label){
+        StringBuilder result = new StringBuilder();
+
+        for (String s : label) {
+
+            if (dotGraph.removeVertex(s)) {
+                result.append("Node ").append(s).append("successfully removed.");
+            } else {
+                result.append("Node ").append(s).append("doesn't exists. ");
+            }
+        }
+
+        return result.toString();
+    }
+
+    public String removeEdge(String srcLabel, String dstLabel){
+        if (dotGraph.removeEdge(srcLabel, dstLabel) != null){
+            return "Edge successfully removed";
+        }
+        else{
+            return "Edge does not exist in graph.";
+        }
+    }
+
 
 
 
