@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Quick change to main class">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CSE4642026-CJimen47.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/DotGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/GraphViz.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/GraphViz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSE464PJ/test/output.dot" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/output.dot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="mainbackup" />
+        <entry key="$PROJECT_DIR$" value="feature3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,6 +35,9 @@
     &quot;accountId&quot;: &quot;5c3c6e5e-53ee-42cd-a8a8-8cc3644c89f8&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -58,6 +51,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.GraphTest.edgeUnsuccessfulRemove.executor": "Run",
+    "JUnit.GraphTest.executor": "Run",
+    "JUnit.GraphTest.mixedSuccessfulRemove.executor": "Run",
+    "JUnit.GraphTest.mixedUnsuccessfulRemove.executor": "Run",
+    "JUnit.GraphTest.nodeUnsuccessfulRemove.executor": "Run",
+    "JUnit.GraphTest.nodesUnsuccessfulRemove.executor": "Run",
+    "JUnit.GraphTest.testAddInvalidEdge.executor": "Run",
+    "JUnit.GraphTest.testRemoveEdge.executor": "Run",
+    "JUnit.GraphTest.testRemoveNode.executor": "Run",
+    "JUnit.GraphTest.testRemoveNodes.executor": "Run",
     "Maven.CSE464-GraphManager [test].executor": "Run",
     "Maven.CSE4642026-CJimen47 [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -65,7 +68,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "rmvAPI",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/coraljimenez-gudino/git/CSE4642026-CJimen47",
     "project.structure.last.edited": "Modules",
@@ -80,40 +83,74 @@
       <recent name="$PROJECT_DIR$/CSE464PJ/src/main/java" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="CSE4642026-CJimen47 [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="test" />
-              </list>
-            </option>
-            <option name="multimoduleDir" />
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
+  <component name="RunManager" selected="JUnit.GraphTest.nodesUnsuccessfulRemove">
+    <configuration name="GraphTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSE464-GraphManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GraphTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphTest.edgeUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSE464-GraphManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GraphTest" />
+      <option name="METHOD_NAME" value="edgeUnsuccessfulRemove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphTest.mixedUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSE464-GraphManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GraphTest" />
+      <option name="METHOD_NAME" value="mixedUnsuccessfulRemove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphTest.nodeUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSE464-GraphManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GraphTest" />
+      <option name="METHOD_NAME" value="nodeUnsuccessfulRemove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphTest.nodesUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSE464-GraphManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GraphTest" />
+      <option name="METHOD_NAME" value="nodesUnsuccessfulRemove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="CSE464-GraphManager" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CSE464-GraphManager" />
+      <option name="filePath" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Maven.CSE4642026-CJimen47 [test]" />
+        <item itemvalue="JUnit.GraphTest.nodesUnsuccessfulRemove" />
+        <item itemvalue="JUnit.GraphTest" />
+        <item itemvalue="JUnit.GraphTest.edgeUnsuccessfulRemove" />
+        <item itemvalue="JUnit.GraphTest.nodeUnsuccessfulRemove" />
+        <item itemvalue="JUnit.GraphTest.mixedUnsuccessfulRemove" />
       </list>
     </recent_temporary>
   </component>

@@ -161,36 +161,53 @@ public class DotGraph {
     }
 
     //******* Remove Edges and Nodes *******///
-    public String removeNode(String label){
-        if(dotGraph.removeVertex(label)){
-            return "Node " + label + "successfully removed.";
+    public void removeNode(String label) throws Exception {
+        try{
+            if(dotGraph.removeVertex(label)){
+                System.out.println("Node " + label + " Successfully removed.");
+            }
+            else{
+                throw new Exception(label + " node doesn't exist");
+            }
         }
-        else{
-            return "Node " + label + "doesn't exists";
+        catch (Exception e){
+            System.out.println(label + " node doesn't exist");
+
         }
+
     }
 
-    public String removeNodes(String[] label){
-        StringBuilder result = new StringBuilder();
+    public void removeNodes(String[] label) throws Exception{
 
         for (String s : label) {
 
-            if (dotGraph.removeVertex(s)) {
-                result.append("Node ").append(s).append("successfully removed.");
-            } else {
-                result.append("Node ").append(s).append("doesn't exists. ");
+            try {
+                if (dotGraph.removeVertex(s)) {
+                    System.out.print("Node " + s + " successfully removed.\n" );
+                } else {
+                    throw new Exception("Node " + s + " doesn't exist");
+                }
+            }
+            catch(Exception e){
+                System.out.println("Node " + s + " doesn't exist");
             }
         }
 
-        return result.toString();
+        //System.out.println(result.toString());
     }
 
-    public String removeEdge(String srcLabel, String dstLabel){
-        if (dotGraph.removeEdge(srcLabel, dstLabel) != null){
-            return "Edge successfully removed";
+    public void removeEdge(String srcLabel, String dstLabel) throws Exception {
+        try {
+            if (dotGraph.removeEdge(srcLabel, dstLabel) != null) {
+                System.out.println("Edge " + srcLabel + " -> " + dstLabel + " has been successfully removed");
+            } else {
+                throw new Exception("Edge doesn't exist");
+
+            }
         }
-        else{
-            return "Edge does not exist in graph.";
+        catch(Exception e){
+            System.out.println("Edge " + srcLabel + " -> " + dstLabel + " does not exists.");
+
         }
     }
 
