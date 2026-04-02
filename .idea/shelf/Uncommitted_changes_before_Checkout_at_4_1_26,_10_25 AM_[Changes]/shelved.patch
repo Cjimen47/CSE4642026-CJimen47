@@ -1,0 +1,178 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"1f61432d-bf2e-49c3-bfdd-73f08a678f2c\" name=\"Changes\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"Cjimen47\"\n  }\n}]]></component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/Cjimen47/CSE4642026-CJimen47.git\",\n    \"accountId\": \"5c3c6e5e-53ee-42cd-a8a8-8cc3644c89f8\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"associatedIndex\": 7\n}]]></component>\n  <component name=\"ProjectId\" id=\"3AmUHUW7XjtLCQIRS3Ry5RRjweS\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"RunOnceActivity.typescript.service.memoryLimit.init\": \"true\",\n    \"git-widget-placeholder\": \"main\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"1f61432d-bf2e-49c3-bfdd-73f08a678f2c\" name=\"Changes\" comment=\"\" />\n      <created>1773197152583</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1773197152583</updated>\n      <workItem from=\"1773197160478\" duration=\"96000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e5b4ce9a1b5a346e02fb8c3498ad67c6e558eeb8)
++++ b/.idea/workspace.xml	(date 1775064278392)
+@@ -1,30 +1,56 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="" />
++    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Quick change to main class">
++      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/CSE4642026-CJimen47.iml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/DotGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/GraphViz.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/GraphViz.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/config.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CSE464PJ/test/output.dot" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/output.dot" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="mainbackup" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
+-    "state": "OPEN",
+-    "assignee": "Cjimen47"
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;Cjimen47&quot;
+   }
+-}]]></component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "https://github.com/Cjimen47/CSE4642026-CJimen47.git",
+-    "accountId": "5c3c6e5e-53ee-42cd-a8a8-8cc3644c89f8"
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/Cjimen47/CSE4642026-CJimen47.git&quot;,
++    &quot;accountId&quot;: &quot;5c3c6e5e-53ee-42cd-a8a8-8cc3644c89f8&quot;
+   }
+-}]]></component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 7
+-}]]></component>
++}</component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 7
++}</component>
+   <component name="ProjectId" id="3AmUHUW7XjtLCQIRS3Ry5RRjweS" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+@@ -32,18 +58,70 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "Maven.CSE464-GraphManager [test].executor": "Run",
++    "Maven.CSE4642026-CJimen47 [test].executor": "Run",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+     "RunOnceActivity.git.unshallow": "true",
+     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "git-widget-placeholder": "main",
+     "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "/Users/coraljimenez-gudino/git/CSE4642026-CJimen47",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "preferences.pluginManager",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
++  <component name="RecentsManager">
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/CSE464PJ/src/main/java" />
++    </key>
++  </component>
++  <component name="RunManager">
++    <configuration name="CSE4642026-CJimen47 [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
++      <MavenSettings>
++        <option name="myGeneralSettings" />
++        <option name="myRunnerSettings" />
++        <option name="myRunnerParameters">
++          <MavenRunnerParameters>
++            <option name="cmdOptions" />
++            <option name="profiles">
++              <set />
++            </option>
++            <option name="goals">
++              <list>
++                <option value="test" />
++              </list>
++            </option>
++            <option name="multimoduleDir" />
++            <option name="pomFileName" value="pom.xml" />
++            <option name="profilesMap">
++              <map />
++            </option>
++            <option name="projectsCmdOptionValues">
++              <list />
++            </option>
++            <option name="resolveToWorkspace" value="false" />
++            <option name="workingDirPath" value="$PROJECT_DIR$" />
++          </MavenRunnerParameters>
++        </option>
++      </MavenSettings>
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Maven.CSE4642026-CJimen47 [test]" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+         <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
++        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -55,10 +133,24 @@
+       <option name="presentableId" value="Default" />
+       <updated>1773197152583</updated>
+       <workItem from="1773197160478" duration="96000" />
++      <workItem from="1774908169173" duration="10428000" />
++    </task>
++    <task id="LOCAL-00001" summary="Quick change to main class">
++      <option name="closed" value="true" />
++      <created>1774911402294</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1774911402294</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Quick change to main class" />
++    <option name="LAST_COMMIT_MESSAGE" value="Quick change to main class" />
++  </component>
+ </project>
+\ No newline at end of file
