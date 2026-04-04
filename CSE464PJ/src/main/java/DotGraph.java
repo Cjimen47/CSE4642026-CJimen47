@@ -76,7 +76,7 @@ public class DotGraph {
             myWriter.write(this.toString());
             myWriter.close();
         } catch (IOException e){
-            System.out.println("An error occurred while writing to file.");
+            System.out.println("Error occurred while writing to file.");
             e.printStackTrace();
         }
     }
