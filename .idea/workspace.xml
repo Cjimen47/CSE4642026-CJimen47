@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Quick change to main class">
+    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Trigger CI file">
+      <change afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/Path.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CSE464-GraphManager-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CSE464-GraphManager-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DotGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DotGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/GraphTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/GraphTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-GraphTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-GraphTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/GraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GraphTest.class" afterDir="false" />
@@ -15,6 +19,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -52,6 +63,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.GraphTest.bsf.executor": "Run",
     "JUnit.GraphTest.edgeUnsuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.executor": "Run",
     "JUnit.GraphTest.mixedSuccessfulRemove.executor": "Run",
@@ -69,7 +81,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "bfs",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/coraljimenez-gudino/git/CSE4642026-CJimen47",
     "project.structure.last.edited": "Project",
@@ -84,7 +96,7 @@
       <recent name="$PROJECT_DIR$/CSE464PJ/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GraphTest">
+  <component name="RunManager" selected="JUnit.GraphTest.bsf">
     <configuration name="GraphTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -94,21 +106,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.edgeUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.bsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="edgeUnsuccessfulRemove" />
+      <option name="METHOD_NAME" value="bsf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.mixedUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.edgeUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="mixedUnsuccessfulRemove" />
+      <option name="METHOD_NAME" value="edgeUnsuccessfulRemove" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GraphTest.bsf" />
         <item itemvalue="JUnit.GraphTest" />
         <item itemvalue="JUnit.GraphTest.nodesUnsuccessfulRemove" />
         <item itemvalue="JUnit.GraphTest.edgeUnsuccessfulRemove" />
         <item itemvalue="JUnit.GraphTest.nodeUnsuccessfulRemove" />
-        <item itemvalue="JUnit.GraphTest.mixedUnsuccessfulRemove" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +193,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774911402294</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added continuous integration file">
+      <option name="closed" value="true" />
+      <created>1775260917421</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1775260917421</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Trigger CI file">
+      <option name="closed" value="true" />
+      <created>1775261416873</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1775261416874</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +217,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Quick change to main class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Quick change to main class" />
+    <MESSAGE value="Added continuous integration file" />
+    <MESSAGE value="Trigger CI file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trigger CI file" />
   </component>
 </project>

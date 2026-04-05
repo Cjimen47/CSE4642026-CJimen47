@@ -20,10 +20,12 @@ import java.util.regex.Pattern;
 public class DotGraph {
     Graph<String, DefaultEdge> dotGraph;
     String title;
+    Path nodePath;
 
     public DotGraph() {
         dotGraph = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
         title = "null";
+        nodePath = new Path();
     }
 
     //******* Feature 1 *******///
@@ -211,9 +213,67 @@ public class DotGraph {
         }
     }
 
+    //******* Breadth First Search *******///
+    public Path GraphSearch(String src, String dst){
+        //Create a queue
+        Queue<String> Q = new LinkedList<>();
+
+        List<String> nodes = Arrays.asList(Arrays.copyOf(dotGraph.vertexSet().toArray(), dotGraph.vertexSet().toArray().length, String[].class));
+        ArrayList<Boolean> explored = new ArrayList<>();
+
+        for(int i = 0; i < nodes.size(); i++){
+            explored.add(false);
+        }
+
+
+        String v;
+
+        //Label the root as explored
+        explored.set(nodes.indexOf(src), true);
+        //Add Root to queue
+        Q.add(src);
+
+        /*while(!Q.isEmpty()){
+            v = Q.remove();
+
+            if(v.equals(dst)){
+                return nodePath;
+            }
+
+            Object[] children = dotGraph.outgoingEdgesOf(v).toArray();
 
 
 
+
+        }*/
+
+
+
+
+        //Create an array of booleans that aligns with the Vertex set
+
+        //Add src to the root
+
+        //create a while loop that only goes while Q is not empty
+
+        //Create a source v that holds the dequeued result
+
+        //If v is a match, then return the nodePath
+
+        //Else
+        //Get the set of edges touching v
+
+        //Check every edge
+
+        //If the edge has not been labeled as explored, label it
+
+        //Add the parent to the node path
+        //Queue the visited edge
+
+        return nodePath;
+
+
+    }
 
 
 

@@ -26,6 +26,13 @@ public class GraphTest {
     }
 
     @Test
+    public void bsf() throws IOException {
+        System.out.println("in bsf");
+        //Arrange
+        Path path = testGraph.GraphSearch("a","d");
+    }
+
+    @Test
     public void testRemoveNode() throws Exception {
         System.out.println("in removeNode");
 
