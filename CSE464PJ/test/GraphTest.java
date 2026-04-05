@@ -26,28 +26,29 @@ public class GraphTest {
     }
 
     @Test
-    public void rootBsf() throws IOException {
-        System.out.println("in rootBsf");
+    public void rootDfs() throws IOException {
+        System.out.println("in rootDfs");
         //Arrange
         Path path = testGraph.GraphSearch("a","h");
 
-        Assert.assertEquals("a->b->e->c->f->g->d->h",path.toString());
+        Assert.assertEquals("a->b->c->d->e->f->h",path.toString());
 
     }
 
     @Test
-    public void leafBsf() throws IOException {
-        System.out.println("in leafBsf");
+    public void leafDfs() throws IOException {
+        System.out.println("in leafDfs");
         //Arrange
         Path path = testGraph.GraphSearch("d","h");
+        System.out.println(path.toString());
 
-        Assert.assertEquals("d->a->b->e->c->f->g->h",path.toString());
+        Assert.assertEquals("d->a->b->c->e->f->h",path.toString());
 
     }
 
     @Test
-    public void noPathBsf() throws IOException {
-        System.out.println("in noPathBsf");
+    public void noPathDfs() throws IOException {
+        System.out.println("in noPathDfs");
         //Arrange
         Path path = testGraph.GraphSearch("h","a");
 
@@ -55,8 +56,8 @@ public class GraphTest {
     }
 
     @Test
-    public void nonexistentNodeBsf() throws IOException {
-        System.out.println("in nonexistentNodeBsf");
+    public void nonexistentNodeDfs() throws IOException {
+        System.out.println("in nonexistentNodeDfs");
         //Arrange
         Path path = testGraph.GraphSearch("b","q");
 
@@ -64,8 +65,8 @@ public class GraphTest {
     }
 
     @Test
-    public void sameNodeBsf() throws IOException {
-        System.out.println("in sameNodeBsf");
+    public void sameNodeDfs() throws IOException {
+        System.out.println("in sameNodedfs");
         //Arrange
         Path path = testGraph.GraphSearch("b","b");
 

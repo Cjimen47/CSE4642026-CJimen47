@@ -7,7 +7,6 @@
     <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Partial BSF Path Search added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/main/java/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/Path.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/DotGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DotGraph.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/GraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GraphTest.class" afterDir="false" />
@@ -27,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="rmvAPI" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,13 +63,17 @@
     "JUnit.GraphTest.edgeUnsuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.executor": "Run",
     "JUnit.GraphTest.leafBsf.executor": "Run",
+    "JUnit.GraphTest.leafDfs.executor": "Run",
     "JUnit.GraphTest.mixedSuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.mixedUnsuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.noPathBsf.executor": "Run",
+    "JUnit.GraphTest.noPathDfs.executor": "Run",
     "JUnit.GraphTest.nodeUnsuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.nodesUnsuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.nonexistentNodeBsf.executor": "Run",
+    "JUnit.GraphTest.nonexistentNodeDfs.executor": "Run",
     "JUnit.GraphTest.rootBsf.executor": "Run",
+    "JUnit.GraphTest.rootDfs.executor": "Run",
     "JUnit.GraphTest.sameNodeBsf.executor": "Run",
     "JUnit.GraphTest.sameSrcandDstBsf.executor": "Run",
     "JUnit.GraphTest.testAddInvalidEdge.executor": "Run",
@@ -84,7 +87,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "bfs",
+    "git-widget-placeholder": "dfs",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/coraljimenez-gudino/git/CSE4642026-CJimen47",
     "project.structure.last.edited": "Project",
@@ -99,51 +102,52 @@
       <recent name="$PROJECT_DIR$/CSE464PJ/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GraphTest">
-    <configuration name="GraphTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GraphTest.sameNodeDfs">
+    <configuration name="GraphTest.leafDfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GraphTest.leafBsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CSE464-GraphManager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="leafBsf" />
+      <option name="METHOD_NAME" value="leafDfs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.nonexistentNodeBsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.noPathDfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="nonexistentNodeBsf" />
+      <option name="METHOD_NAME" value="noPathDfs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.sameNodeBsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.nonexistentNodeDfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="sameNodeBsf" />
+      <option name="METHOD_NAME" value="nonexistentNodeDfs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.sameSrcandDstBsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.rootDfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="sameSrcandDstBsf" />
+      <option name="METHOD_NAME" value="rootDfs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphTest.sameNodeDfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSE464-GraphManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GraphTest" />
+      <option name="METHOD_NAME" value="sameNodeDfs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GraphTest" />
-        <item itemvalue="JUnit.GraphTest.leafBsf" />
-        <item itemvalue="JUnit.GraphTest.sameNodeBsf" />
-        <item itemvalue="JUnit.GraphTest.nonexistentNodeBsf" />
-        <item itemvalue="JUnit.GraphTest.sameSrcandDstBsf" />
+        <item itemvalue="JUnit.GraphTest.sameNodeDfs" />
+        <item itemvalue="JUnit.GraphTest.nonexistentNodeDfs" />
+        <item itemvalue="JUnit.GraphTest.noPathDfs" />
+        <item itemvalue="JUnit.GraphTest.leafDfs" />
+        <item itemvalue="JUnit.GraphTest.rootDfs" />
       </list>
     </recent_temporary>
   </component>

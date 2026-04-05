@@ -213,8 +213,80 @@ public class DotGraph {
         }
     }
 
-    //******* Breadth First Search *******///
+    //******* Depth First Search *******///
     public Path GraphSearch(String src, String dst){
+        //Create a stack
+        Stack<String> S = new Stack<>();
+
+        //Set up
+        List<String> nodes = Arrays.asList(Arrays.copyOf(dotGraph.vertexSet().toArray(), dotGraph.vertexSet().toArray().length, String[].class));
+        ArrayList<Boolean> explored = new ArrayList<>();
+
+        if(!nodes.contains(src) || !nodes.contains(dst)){
+            return nodePath;
+        }
+        else if(src.equals(dst)){
+            nodePath.updatePath(src);
+            return nodePath;
+        }
+
+        for(int i = 0; i < nodes.size(); i++){
+            explored.add(false);
+        }
+
+        //Push the src onto stack
+        String v = src;
+        S.push(v);
+
+        while(!S.empty()){
+            v = S.pop();
+
+            if(explored.get(nodes.indexOf(v)) != true){
+                explored.set(nodes.indexOf(v), true);
+                nodePath.updatePath(v);
+
+                System.out.println("v is currently " + v + " and its nodePath is " + nodePath.toString());
+                System.out.println("This is the explored array " + explored.toString());
+
+
+                if(v.equals(dst)){
+                    return nodePath;
+                }
+
+            }
+            else{
+                continue;
+            }
+            System.out.println("v is currently " + v + " and its outgoing edges are " + dotGraph.outgoingEdgesOf(v).toString());
+
+            ArrayList<String> edges = new ArrayList<>();
+
+            //collect edges
+            for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                edges.add(dotGraph.getEdgeTarget(edge));
+
+                //S.push(dotGraph.getEdgeTarget(edge));
+            }
+            System.out.println("These are the edges collected "  + edges.toString());
+
+            //push edges onto stack
+
+            for(int i = edges.size(); i > 0; i--){
+                S.push(edges.get(i-1));
+            }
+
+            System.out.println("This is currently the stack " + S.toString());
+            //System.out.println("This is the boolean status of the upcoming node " + explored.get(nodes.indexOf(S.peek())));
+
+            /*if(v.equals("d")){
+                break;
+            }*/
+
+        }
+
+
+
+        /*
         //Create a queue
         Queue<String> Q = new LinkedList<>();
 
@@ -264,7 +336,7 @@ public class DotGraph {
             //System.out.println("Parent v is " + v + " and this is the current path is " + nodePath.toString());
             //System.out.println("This is currently the queue " + Q.toString());
 
-        }
+        }*/
 
         return nodePath;
 
