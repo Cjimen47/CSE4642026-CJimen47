@@ -4,14 +4,15 @@ public class Path {
     ArrayList<String> nodePath;
 
     public Path(){
-        nodePath = null;
+        nodePath = new ArrayList<>();
     }
 
 
     public void updatePath (String node){
-
+        if(!nodePath.contains(node)){
             nodePath.add(node);
 
+        }
     }
 
     public String toString(){

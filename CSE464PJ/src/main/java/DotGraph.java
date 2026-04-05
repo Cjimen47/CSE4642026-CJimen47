@@ -221,10 +221,17 @@ public class DotGraph {
         List<String> nodes = Arrays.asList(Arrays.copyOf(dotGraph.vertexSet().toArray(), dotGraph.vertexSet().toArray().length, String[].class));
         ArrayList<Boolean> explored = new ArrayList<>();
 
+        if(!nodes.contains(src) || !nodes.contains(dst)){
+            return nodePath;
+        }
+        else if(src.equals(dst)){
+            nodePath.updatePath(src);
+            return nodePath;
+        }
+
         for(int i = 0; i < nodes.size(); i++){
             explored.add(false);
         }
-
 
         String v;
 
@@ -232,46 +239,34 @@ public class DotGraph {
         explored.set(nodes.indexOf(src), true);
         //Add Root to queue
         Q.add(src);
+        nodePath.updatePath(src);
 
-        /*while(!Q.isEmpty()){
+        while(!Q.isEmpty()){
             v = Q.remove();
-
-            if(v.equals(dst)){
-                return nodePath;
-            }
 
             Object[] children = dotGraph.outgoingEdgesOf(v).toArray();
 
+            for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                if(explored.get(nodes.indexOf(dotGraph.getEdgeTarget(edge))) != false){
+                    explored.set(nodes.indexOf(dotGraph.getEdgeTarget(edge)), true);
+                }
 
+                nodePath.updatePath(dotGraph.getEdgeTarget(edge));
 
+                if(dotGraph.getEdgeTarget(edge).equals(dst)){
+                    //System.out.println("When we make it in here the queue looks like this? " + Q.toString());
+                    return nodePath;
+                }
 
-        }*/
+                Q.add(dotGraph.getEdgeTarget(edge));
+            }
 
+            //System.out.println("Parent v is " + v + " and this is the current path is " + nodePath.toString());
+            //System.out.println("This is currently the queue " + Q.toString());
 
-
-
-        //Create an array of booleans that aligns with the Vertex set
-
-        //Add src to the root
-
-        //create a while loop that only goes while Q is not empty
-
-        //Create a source v that holds the dequeued result
-
-        //If v is a match, then return the nodePath
-
-        //Else
-        //Get the set of edges touching v
-
-        //Check every edge
-
-        //If the edge has not been labeled as explored, label it
-
-        //Add the parent to the node path
-        //Queue the visited edge
+        }
 
         return nodePath;
-
 
     }
 

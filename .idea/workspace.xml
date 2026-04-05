@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Trigger CI file">
-      <change afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/Path.java" afterDir="false" />
+    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Partial BSF Path Search added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSE464PJ/src/main/java/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/Path.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CSE464-GraphManager-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CSE464-GraphManager-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/DotGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DotGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/GraphTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/GraphTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-GraphTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-GraphTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/GraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GraphTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,10 +63,16 @@
     "JUnit.GraphTest.bsf.executor": "Run",
     "JUnit.GraphTest.edgeUnsuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.executor": "Run",
+    "JUnit.GraphTest.leafBsf.executor": "Run",
     "JUnit.GraphTest.mixedSuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.mixedUnsuccessfulRemove.executor": "Run",
+    "JUnit.GraphTest.noPathBsf.executor": "Run",
     "JUnit.GraphTest.nodeUnsuccessfulRemove.executor": "Run",
     "JUnit.GraphTest.nodesUnsuccessfulRemove.executor": "Run",
+    "JUnit.GraphTest.nonexistentNodeBsf.executor": "Run",
+    "JUnit.GraphTest.rootBsf.executor": "Run",
+    "JUnit.GraphTest.sameNodeBsf.executor": "Run",
+    "JUnit.GraphTest.sameSrcandDstBsf.executor": "Run",
     "JUnit.GraphTest.testAddInvalidEdge.executor": "Run",
     "JUnit.GraphTest.testRemoveEdge.executor": "Run",
     "JUnit.GraphTest.testRemoveNode.executor": "Run",
@@ -96,7 +99,7 @@
       <recent name="$PROJECT_DIR$/CSE464PJ/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GraphTest.bsf">
+  <component name="RunManager" selected="JUnit.GraphTest">
     <configuration name="GraphTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -106,41 +109,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.bsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.leafBsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="bsf" />
+      <option name="METHOD_NAME" value="leafBsf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.edgeUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.nonexistentNodeBsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="edgeUnsuccessfulRemove" />
+      <option name="METHOD_NAME" value="nonexistentNodeBsf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.nodeUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.sameNodeBsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="nodeUnsuccessfulRemove" />
+      <option name="METHOD_NAME" value="sameNodeBsf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.nodesUnsuccessfulRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphTest.sameSrcandDstBsf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="nodesUnsuccessfulRemove" />
+      <option name="METHOD_NAME" value="sameSrcandDstBsf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GraphTest.bsf" />
         <item itemvalue="JUnit.GraphTest" />
-        <item itemvalue="JUnit.GraphTest.nodesUnsuccessfulRemove" />
-        <item itemvalue="JUnit.GraphTest.edgeUnsuccessfulRemove" />
-        <item itemvalue="JUnit.GraphTest.nodeUnsuccessfulRemove" />
+        <item itemvalue="JUnit.GraphTest.leafBsf" />
+        <item itemvalue="JUnit.GraphTest.sameNodeBsf" />
+        <item itemvalue="JUnit.GraphTest.nonexistentNodeBsf" />
+        <item itemvalue="JUnit.GraphTest.sameSrcandDstBsf" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775261416874</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Partial BSF Path Search added">
+      <option name="closed" value="true" />
+      <created>1775349872913</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775349872914</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +230,7 @@
     <MESSAGE value="Quick change to main class" />
     <MESSAGE value="Added continuous integration file" />
     <MESSAGE value="Trigger CI file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trigger CI file" />
+    <MESSAGE value="Partial BSF Path Search added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Partial BSF Path Search added" />
   </component>
 </project>
