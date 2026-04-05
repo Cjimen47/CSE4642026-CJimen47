@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="Partial BSF Path Search added">
+    <list default="true" id="1f61432d-bf2e-49c3-bfdd-73f08a678f2c" name="Changes" comment="DFS graph search fully implemented and tested">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/src/main/java/DotGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSE464PJ/test/GraphTest.java" afterDir="false" />
@@ -75,6 +75,7 @@
     "JUnit.GraphTest.rootBsf.executor": "Run",
     "JUnit.GraphTest.rootDfs.executor": "Run",
     "JUnit.GraphTest.sameNodeBsf.executor": "Run",
+    "JUnit.GraphTest.sameNodeDfs.executor": "Run",
     "JUnit.GraphTest.sameSrcandDstBsf.executor": "Run",
     "JUnit.GraphTest.testAddInvalidEdge.executor": "Run",
     "JUnit.GraphTest.testRemoveEdge.executor": "Run",
@@ -102,7 +103,16 @@
       <recent name="$PROJECT_DIR$/CSE464PJ/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GraphTest.sameNodeDfs">
+  <component name="RunManager" selected="JUnit.GraphTest">
+    <configuration name="GraphTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSE464-GraphManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GraphTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GraphTest.leafDfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -133,16 +143,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.rootDfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CSE464-GraphManager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GraphTest" />
-      <option name="METHOD_NAME" value="rootDfs" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GraphTest.sameNodeDfs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSE464-GraphManager" />
       <option name="PACKAGE_NAME" value="" />
@@ -166,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GraphTest" />
         <item itemvalue="JUnit.GraphTest.sameNodeDfs" />
         <item itemvalue="JUnit.GraphTest.nonexistentNodeDfs" />
         <item itemvalue="JUnit.GraphTest.noPathDfs" />
         <item itemvalue="JUnit.GraphTest.leafDfs" />
-        <item itemvalue="JUnit.GraphTest.rootDfs" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775349872914</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="DFS graph search fully implemented and tested">
+      <option name="closed" value="true" />
+      <created>1775393085054</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1775393085055</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +243,7 @@
     <MESSAGE value="Added continuous integration file" />
     <MESSAGE value="Trigger CI file" />
     <MESSAGE value="Partial BSF Path Search added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Partial BSF Path Search added" />
+    <MESSAGE value="DFS graph search fully implemented and tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="DFS graph search fully implemented and tested" />
   </component>
 </project>

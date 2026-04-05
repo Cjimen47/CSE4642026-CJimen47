@@ -40,7 +40,7 @@ public class GraphTest {
         System.out.println("in leafDfs");
         //Arrange
         Path path = testGraph.GraphSearch("d","h");
-        System.out.println(path.toString());
+
 
         Assert.assertEquals("d->a->b->c->e->f->h",path.toString());
 
