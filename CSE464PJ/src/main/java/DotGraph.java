@@ -22,6 +22,11 @@ public class DotGraph {
     String title;
     Path nodePath;
 
+    enum Algorithm{
+        BFS,
+        DFS
+    }
+
     public DotGraph() {
         dotGraph = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
         title = "null";
@@ -213,66 +218,113 @@ public class DotGraph {
         }
     }
 
-    //******* Breadth First Search *******///
-    public Path GraphSearch(String src, String dst){
-        //Create a queue
-        Queue<String> Q = new LinkedList<>();
+    //******* Graph Search *******///
+    public Path GraphSearch(String src, String dst, Algorithm algo){
+        if(algo != Algorithm.BFS && algo != Algorithm.DFS){
+            System.out.println("Invalid Algorithm");
+            return nodePath;
+        }
 
         List<String> nodes = Arrays.asList(Arrays.copyOf(dotGraph.vertexSet().toArray(), dotGraph.vertexSet().toArray().length, String[].class));
         ArrayList<Boolean> explored = new ArrayList<>();
-
-        if(!nodes.contains(src) || !nodes.contains(dst)){
-            return nodePath;
-        }
-        else if(src.equals(dst)){
-            nodePath.updatePath(src);
-            return nodePath;
-        }
+        String v;
 
         for(int i = 0; i < nodes.size(); i++){
             explored.add(false);
         }
 
-        String v;
+        if(!nodes.contains(src) || !nodes.contains(dst) || src.equals(dst) || dotGraph.outgoingEdgesOf(src).isEmpty()){
+            return null;
+        }
 
-        //Label the root as explored
-        explored.set(nodes.indexOf(src), true);
-        //Add Root to queue
-        Q.add(src);
-        nodePath.updatePath(src);
+        if(algo.equals(Algorithm.BFS)){
+            //Create a queue
+            Queue<String> Q = new LinkedList<>();
 
-        while(!Q.isEmpty()){
-            v = Q.remove();
+            //Label the root as explored
+            explored.set(nodes.indexOf(src), true);
+            //Add Root to queue
+            Q.add(src);
+            nodePath.updatePath(src);
 
-            Object[] children = dotGraph.outgoingEdgesOf(v).toArray();
+            while (!Q.isEmpty()) {
+                v = Q.remove();
 
-            for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
-                if(explored.get(nodes.indexOf(dotGraph.getEdgeTarget(edge))) != false){
-                    explored.set(nodes.indexOf(dotGraph.getEdgeTarget(edge)), true);
+                Object[] children = dotGraph.outgoingEdgesOf(v).toArray();
+
+                for (DefaultEdge edge : dotGraph.outgoingEdgesOf(v)) {
+                    if (explored.get(nodes.indexOf(dotGraph.getEdgeTarget(edge))) != false) {
+                        explored.set(nodes.indexOf(dotGraph.getEdgeTarget(edge)), true);
+                    }
+
+                    nodePath.updatePath(dotGraph.getEdgeTarget(edge));
+
+                    if (dotGraph.getEdgeTarget(edge).equals(dst)) {
+                        //System.out.println("When we make it in here the queue looks like this? " + Q.toString());
+                        return nodePath;
+                    }
+
+                    Q.add(dotGraph.getEdgeTarget(edge));
                 }
 
-                nodePath.updatePath(dotGraph.getEdgeTarget(edge));
+                //System.out.println("Parent v is " + v + " and this is the current path is " + nodePath.toString());
+                //System.out.println("This is currently the queue " + Q.toString());
 
-                if(dotGraph.getEdgeTarget(edge).equals(dst)){
-                    //System.out.println("When we make it in here the queue looks like this? " + Q.toString());
-                    return nodePath;
-                }
-
-                Q.add(dotGraph.getEdgeTarget(edge));
             }
 
-            System.out.println("Parent v is " + v + " and this is the current path is " + nodePath.toString());
-            //System.out.println("This is currently the queue " + Q.toString());
+            return nodePath;
+
+        } else if (algo.equals(Algorithm.DFS)) {
+            System.out.println("We enter dfs");
+            //Create a stack
+            Stack<String> S = new Stack<>();
+
+
+            //Push the src onto stack
+            v = src;
+            S.push(v);
+
+            while(!S.empty()){
+                v = S.pop();
+
+                if(explored.get(nodes.indexOf(v)) != true){
+                    explored.set(nodes.indexOf(v), true);
+                    nodePath.updatePath(v);
+
+                    //System.out.println("v is currently " + v + " and its nodePath is " + nodePath.toString());
+                    //System.out.println("This is the explored array " + explored.toString());
+
+                    if(v.equals(dst)){
+                        return nodePath;
+                    }
+
+                }
+                else{
+                    continue;
+                }
+                //System.out.println("v is currently " + v + " and its outgoing edges are " + dotGraph.outgoingEdgesOf(v).toString());
+
+                ArrayList<String> edges = new ArrayList<>();
+
+                //collect edges
+                for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                    edges.add(dotGraph.getEdgeTarget(edge));
+                }
+                //System.out.println("These are the edges collected "  + edges.toString());
+
+                //push edges onto stack
+                for(int i = edges.size(); i > 0; i--){
+                    S.push(edges.get(i-1));
+                }
+
+            }
+
+            return nodePath;
 
         }
 
         return nodePath;
 
     }
-
-
-
-
-
 
 }
