@@ -261,7 +261,7 @@ public class DotGraph {
                 Q.add(dotGraph.getEdgeTarget(edge));
             }
 
-            //System.out.println("Parent v is " + v + " and this is the current path is " + nodePath.toString());
+            System.out.println("Parent v is " + v + " and this is the current path is " + nodePath.toString());
             //System.out.println("This is currently the queue " + Q.toString());
 
         }
