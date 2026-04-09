@@ -275,7 +275,7 @@ public class DotGraph {
             return nodePath;
 
         } else if (algo.equals(Algorithm.DFS)) {
-            System.out.println("We enter dfs");
+            //System.out.println("We enter dfs");
             //Create a stack
             Stack<String> S = new Stack<>();
 
