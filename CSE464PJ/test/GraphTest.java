@@ -29,16 +29,17 @@ public class GraphTest {
     public void rootGraphSearch() throws IOException {
         System.out.println("in rootGraphSearch");
         //Arrange
-        DotGraph.BFS bfs = testGraph.new BFS("a","h");
-        Path result = bfs.Search();
+        //DotGraph.GraphSearch bfs = testGraph.new BFS("a","h");
+        DotGraph.SearchContext bfsContext = testGraph.new SearchContext(testGraph.new BFS("a","h"));
+        Path result = bfsContext.performSearch();
         Assert.assertEquals("a->b->e->c->f->g->d->h",result.toString());
 
         //System.out.println("Performing 2nd test: ");
         testGraph.nodePath.nodePath.clear();
 
 
-        DotGraph.GraphsSearch dfs = testGraph.new DFS("a", "h");
-        result = dfs.Search();
+        DotGraph.SearchContext dfsContext = testGraph.new SearchContext(testGraph.new DFS("a","h"));
+        result = dfsContext.performSearch();
         Assert.assertEquals("a->b->c->d->e->f->h",result.toString());
 
     }
@@ -49,16 +50,16 @@ public class GraphTest {
         System.out.println("in leafGraphSearch");
 
         //Arrange
-        DotGraph.BFS bfs = testGraph.new BFS("d","h");
-        Path result = bfs.Search();
+        DotGraph.SearchContext bfsContext = testGraph.new SearchContext(testGraph.new BFS("d","h"));
+        Path result = bfsContext.performSearch();
         Assert.assertEquals("d->a->b->e->c->f->g->h",result.toString());
 
         //System.out.println("Performing 2nd test: ");
         testGraph.nodePath.nodePath.clear();
 
 
-        DotGraph.GraphsSearch dfs = testGraph.new DFS("d", "h");
-        result = dfs.Search();
+        DotGraph.SearchContext dfsContext = testGraph.new SearchContext(testGraph.new DFS("d","h"));
+        result = dfsContext.performSearch();
         Assert.assertEquals("d->a->b->c->e->f->h",result.toString());
 
     }
@@ -67,14 +68,14 @@ public class GraphTest {
     @Test
     public void noPathDfs() throws IOException {
         System.out.println("in noPathDfs");
-        DotGraph.BFS bfs = testGraph.new BFS("h","a");
-        Path result = bfs.Search();
+        DotGraph.SearchContext bfsContext = testGraph.new SearchContext(testGraph.new BFS("h","a"));
+        Path result = bfsContext.performSearch();
         Assert.assertNull(result);
 
         //System.out.println("Performing 2nd test: ");
 
-        DotGraph.GraphsSearch dfs = testGraph.new DFS("h", "a");
-        result = dfs.Search();
+        DotGraph.SearchContext dfsContext = testGraph.new SearchContext(testGraph.new DFS("h","a"));
+        result = dfsContext.performSearch();
         Assert.assertNull(result);
 
     }
@@ -84,14 +85,14 @@ public class GraphTest {
         System.out.println("in nonexistentNodeDfs");
 
         //Arrange
-        DotGraph.BFS bfs = testGraph.new BFS("b","q");
-        Path result = bfs.Search();
+        DotGraph.SearchContext bfsContext = testGraph.new SearchContext(testGraph.new BFS("b","q"));
+        Path result = bfsContext.performSearch();
         Assert.assertNull(result);
 
         //System.out.println("Performing 2nd test: ");
 
-        DotGraph.GraphsSearch dfs = testGraph.new DFS("b", "q");
-        result = dfs.Search();
+        DotGraph.SearchContext dfsContext = testGraph.new SearchContext(testGraph.new DFS("b","q"));
+        result = dfsContext.performSearch();
         Assert.assertNull(result);
     }
 
@@ -99,14 +100,14 @@ public class GraphTest {
     public void sameNodeDfs() throws IOException {
         System.out.println("in sameNodedfs");
         //Arrange
-        DotGraph.BFS bfs = testGraph.new BFS("b","b");
-        Path result = bfs.Search();
+        DotGraph.SearchContext bfsContext = testGraph.new SearchContext(testGraph.new BFS("b","b"));
+        Path result = bfsContext.performSearch();
         Assert.assertNull(result);
 
         //System.out.println("Performing 2nd test: ");
 
-        DotGraph.GraphsSearch dfs = testGraph.new DFS("b", "b");
-        result = dfs.Search();
+        DotGraph.SearchContext dfsContext = testGraph.new SearchContext(testGraph.new DFS("b","q"));
+        result = dfsContext.performSearch();
         Assert.assertNull(result);
     }
 

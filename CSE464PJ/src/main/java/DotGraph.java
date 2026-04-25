@@ -219,14 +219,37 @@ public class DotGraph {
     }
 
     //******* Graph Search *******///
-    abstract class GraphsSearch{
+
+    public interface SearchStrategy{
+        Path Search();
+    }
+
+    class SearchContext {
+        private SearchStrategy strategy;
+
+        public SearchContext(SearchStrategy strategy){
+            this.strategy = strategy;
+        }
+
+        public void setSearchContext (SearchStrategy strategy){
+            this.strategy = strategy;
+        }
+
+        public Path performSearch(){
+            return strategy.Search();
+        }
+
+    }
+
+
+    abstract class GraphSearch implements SearchStrategy{
         String src;
         String dst;
         List<String> nodes;
         ArrayList<Boolean> explored;
         String v;
 
-        GraphsSearch(String src, String dst){
+        GraphSearch(String src, String dst){
             this.src = src;
             this.dst = dst;
         }
@@ -283,7 +306,7 @@ public class DotGraph {
 
     }
 
-    class BFS extends GraphsSearch{
+    class BFS extends GraphSearch{
         Queue<String> Q = new LinkedList<>();
 
         BFS(String src, String dst) {
@@ -340,7 +363,7 @@ public class DotGraph {
 
     }
 
-    class DFS extends GraphsSearch{
+    class DFS extends GraphSearch{
         Stack<String> S = new Stack<>();
 
         DFS(String src, String dst) {
