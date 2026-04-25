@@ -29,58 +29,85 @@ public class GraphTest {
     public void rootGraphSearch() throws IOException {
         System.out.println("in rootGraphSearch");
         //Arrange
-        Path bfsPath = testGraph.GraphSearch("a","h", DotGraph.Algorithm.BFS);
-        System.out.println("This is the node path before: " + testGraph.nodePath.toString());
-        Assert.assertEquals("a->b->e->c->f->g->d->h",bfsPath.toString());
+        DotGraph.BFS bfs = testGraph.new BFS("a","h");
+        Path result = bfs.Search();
+        Assert.assertEquals("a->b->e->c->f->g->d->h",result.toString());
 
+        //System.out.println("Performing 2nd test: ");
         testGraph.nodePath.nodePath.clear();
 
-        System.out.println("This is the node path after: " + testGraph.nodePath.toString());
-        Path dfsPath = testGraph.GraphSearch("a","h", DotGraph.Algorithm.DFS);
-        Assert.assertEquals("a->b->c->d->e->f->h",dfsPath.toString());
+
+        DotGraph.GraphsSearch dfs = testGraph.new DFS("a", "h");
+        result = dfs.Search();
+        Assert.assertEquals("a->b->c->d->e->f->h",result.toString());
 
     }
+
 
     @Test
     public void leafGraphSearch() throws IOException {
         System.out.println("in leafGraphSearch");
 
         //Arrange
-        Path bfsPath = testGraph.GraphSearch("d","h", DotGraph.Algorithm.BFS);
-        Assert.assertEquals("d->a->b->e->c->f->g->h",bfsPath.toString());
+        DotGraph.BFS bfs = testGraph.new BFS("d","h");
+        Path result = bfs.Search();
+        Assert.assertEquals("d->a->b->e->c->f->g->h",result.toString());
 
+        //System.out.println("Performing 2nd test: ");
         testGraph.nodePath.nodePath.clear();
 
-        Path dfsPath = testGraph.GraphSearch("d","h", DotGraph.Algorithm.DFS);
-        Assert.assertEquals("d->a->b->c->e->f->h",dfsPath.toString());
+
+        DotGraph.GraphsSearch dfs = testGraph.new DFS("d", "h");
+        result = dfs.Search();
+        Assert.assertEquals("d->a->b->c->e->f->h",result.toString());
 
     }
+
 
     @Test
     public void noPathDfs() throws IOException {
         System.out.println("in noPathDfs");
-        //Arrange
-        Path path = testGraph.GraphSearch("h","a", DotGraph.Algorithm.DFS);
+        DotGraph.BFS bfs = testGraph.new BFS("h","a");
+        Path result = bfs.Search();
+        Assert.assertNull(result);
 
-        Assert.assertNull(path);
+        //System.out.println("Performing 2nd test: ");
+
+        DotGraph.GraphsSearch dfs = testGraph.new DFS("h", "a");
+        result = dfs.Search();
+        Assert.assertNull(result);
+
     }
 
     @Test
     public void nonexistentNodeDfs() throws IOException {
         System.out.println("in nonexistentNodeDfs");
-        //Arrange
-        Path path = testGraph.GraphSearch("b","q", DotGraph.Algorithm.DFS);
 
-        Assert.assertNull(path);
+        //Arrange
+        DotGraph.BFS bfs = testGraph.new BFS("b","q");
+        Path result = bfs.Search();
+        Assert.assertNull(result);
+
+        //System.out.println("Performing 2nd test: ");
+
+        DotGraph.GraphsSearch dfs = testGraph.new DFS("b", "q");
+        result = dfs.Search();
+        Assert.assertNull(result);
     }
 
     @Test
     public void sameNodeDfs() throws IOException {
         System.out.println("in sameNodedfs");
         //Arrange
-        Path path = testGraph.GraphSearch("b","b", DotGraph.Algorithm.DFS);
+        DotGraph.BFS bfs = testGraph.new BFS("b","b");
+        Path result = bfs.Search();
+        Assert.assertNull(result);
 
-        Assert.assertNull(path);
+        //System.out.println("Performing 2nd test: ");
+
+        DotGraph.GraphsSearch dfs = testGraph.new DFS("b", "b");
+        result = dfs.Search();
+        Assert.assertNull(result);
     }
 
 

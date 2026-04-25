@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        DotGraph userGraph = new DotGraph();
+        /*DotGraph userGraph = new DotGraph();
         Scanner scn = new Scanner(System.in);
 
         System.out.println("Welcome to the Graph Manager");
@@ -59,7 +59,7 @@ public class Main {
             throw new RuntimeException(e);
         }
         System.out.println("Here is the resulting graph: ");
-        System.out.println(userGraph.toString());
+        System.out.println(userGraph.toString());*/
 
 
     }
