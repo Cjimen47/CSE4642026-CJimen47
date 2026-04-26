@@ -289,7 +289,6 @@ public class DotGraph {
 
             //System.out.println("This is nodes: " + nodes);
             //System.out.println("This is explored: " + explored);
-
         }
 
         //Verify that the src and dst exist
@@ -422,6 +421,80 @@ public class DotGraph {
 
         }
 
+
+    }
+
+    class RND extends GraphSearch{
+        List<String> nextEdges = new ArrayList<>();
+        String nextNode;
+        Random randNum = new Random();
+        boolean con;
+        boolean found;
+
+        RND(String src, String dst) {
+            super(src, dst);
+        }
+
+        @Override
+        void InitializeTraversal(){
+            //Make the first node to be traversed be the source
+            nextNode = src;
+
+        }
+
+        @Override
+        boolean statusEmpty(){
+            return found;
+
+        }
+
+        @Override
+        void RetrieveNode(){
+            v = nextNode;
+            System.out.println("This is the node we're traversing with: " + v);
+
+        }
+
+        @Override
+        void TraverseNode(){
+            //Add node to path
+            nodePath.updatePath(v);
+
+            System.out.println("This is the path: " + nodePath.toString());
+
+            //Check whether path has been found
+            if(v.equals(dst)){
+                found = true;
+
+            }
+            else{
+                //Else decide if we continue
+                con = randNum.nextBoolean();
+
+                if(con && !dotGraph.outgoingEdgesOf(v).isEmpty()){
+                    //Continue down this path
+
+                    //Collect the outgoing edges of the current node and assign a random node
+                    for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                        nextEdges.add(dotGraph.getEdgeTarget(edge));
+                    }
+
+                    nextNode = nextEdges.get(randNum.nextInt(nextEdges.size()));
+
+
+                }
+                else{
+                    //Finish traversing down this path
+                    System.out.print(nodePath.toString()); //Show attempt
+                    nextNode = src; //Start at beginning
+                    nodePath.nodePath.clear(); //Clear nodePath
+
+                }
+
+
+            }
+
+        }
 
     }
 
