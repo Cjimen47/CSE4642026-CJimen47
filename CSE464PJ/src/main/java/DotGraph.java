@@ -428,6 +428,7 @@ public class DotGraph {
         List<String> nextEdges = new ArrayList<>();
         String nextNode;
         Random randNum = new Random();
+        int attempt = 0;
         boolean con;
         boolean found;
 
@@ -438,7 +439,10 @@ public class DotGraph {
         @Override
         void InitializeTraversal(){
             //Make the first node to be traversed be the source
-            nextNode = src;
+
+            //System.out.println("This is the first initial reset");
+
+            ResetPath();
 
         }
 
@@ -451,7 +455,7 @@ public class DotGraph {
         @Override
         void RetrieveNode(){
             v = nextNode;
-            System.out.println("This is the node we're traversing with: " + v);
+            //System.out.println("This is the node we're traversing with: " + v);
 
         }
 
@@ -460,11 +464,12 @@ public class DotGraph {
             //Add node to path
             nodePath.updatePath(v);
 
-            System.out.println("This is the path: " + nodePath.toString());
+
 
             //Check whether path has been found
             if(v.equals(dst)){
                 found = true;
+                System.out.println("This is the path we ended with: " + nodePath.toString());
 
             }
             else{
@@ -476,23 +481,55 @@ public class DotGraph {
 
                     //Collect the outgoing edges of the current node and assign a random node
                     for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                        //System.out.println("This is the edge we're looking at " + edge.toString());
                         nextEdges.add(dotGraph.getEdgeTarget(edge));
                     }
 
+                    //System.out.println("Attempt "+ attempt + " This is what's in nextEdges: " + nextEdges.toString());
+
                     nextNode = nextEdges.get(randNum.nextInt(nextEdges.size()));
+                    //System.out.println("Attempt "+ attempt + " This is the edge chosen: " + nextNode);
+
+
+                    nextEdges.clear();
+                    //System.out.println("Attempt "+ attempt + " This is the path we're on: " + nodePath.toString());
 
 
                 }
                 else{
                     //Finish traversing down this path
-                    System.out.print(nodePath.toString()); //Show attempt
-                    nextNode = src; //Start at beginning
-                    nodePath.nodePath.clear(); //Clear nodePath
+
+                    System.out.println("Attempt " + attempt + " This is the path we found: " + nodePath.toString());
+                    //System.out.println("/**********************************************/");
+                    ResetPath();
 
                 }
 
 
             }
+
+        }
+
+        void ResetPath(){
+            //System.out.println("We've reset the path");
+            v = src; //Start at beginning
+
+            //Reset node path
+            nodePath.nodePath.clear(); //Clear nodePath
+
+            //Collect the outgoing edges of the current node and assign a random node
+            for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                nextEdges.add(dotGraph.getEdgeTarget(edge));
+            }
+
+            nextNode = nextEdges.get(randNum.nextInt(nextEdges.size()));
+
+            nextEdges.clear();
+
+            //Intitalize new node path
+            nodePath.updatePath(v);
+
+            attempt++;
 
         }
 

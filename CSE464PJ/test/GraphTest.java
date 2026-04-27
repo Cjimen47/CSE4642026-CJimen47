@@ -42,7 +42,9 @@ public class GraphTest {
         result = dfsContext.performSearch();
         Assert.assertEquals("a->b->c->d->e->f->h",result.toString());
 
-        DotGraph.SearchContext rndContext = testGraph.new SearchContext(testGraph.new RND("a","h"));
+        testGraph.nodePath.nodePath.clear();
+
+        DotGraph.SearchContext rndContext = testGraph.new SearchContext(testGraph.new RND("a","c"));
         result = rndContext.performSearch();
 
     }
