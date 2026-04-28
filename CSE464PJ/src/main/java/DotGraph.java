@@ -349,10 +349,15 @@ public class DotGraph {
                 if (dotGraph.getEdgeTarget(edge).equals(dst)) {
 
                     Q.clear();
+
+                    System.out.println("Visit Node History: " + nodePath.toString());
+                    System.out.println("Found target node: " + dotGraph.getEdgeTarget(edge));
+
                     return;
                 }
 
                 Q.add(dotGraph.getEdgeTarget(edge));
+                System.out.println("Visit Node History: " + nodePath.toString());
             }
 
             //System.out.println("This is the queue we are traversing with: " + Q.toString());
@@ -393,6 +398,8 @@ public class DotGraph {
             if(explored.get(nodes.indexOf(v)) != true){
                 explored.set(nodes.indexOf(v), true);
                 nodePath.updatePath(v);
+                System.out.println("Visit Node History: " + nodePath.toString());
+
 
                 //System.out.println("v is currently " + v + " and its nodePath is " + nodePath.toString());
                 //System.out.println("This is the explored array " + explored.toString());
@@ -400,6 +407,8 @@ public class DotGraph {
                 if(v.equals(dst)){
                     //System.out.println("Path Found");
                     S.clear();
+                    System.out.println("Found target node: " + v);
+
                     return;
                 }
             }
