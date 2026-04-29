@@ -35,14 +35,14 @@ public class GraphTest {
         Assert.assertEquals("a->b->e->c->f->g->d->h",result.toString());
 
         //System.out.println("Performing 2nd test: ");
-        testGraph.nodePath.nodePath.clear();
+        testGraph.nodePath.visitHistory.clear();
 
 
         DotGraph.SearchContext dfsContext = testGraph.new SearchContext(testGraph.new DFS("a","h"));
         result = dfsContext.performSearch();
         Assert.assertEquals("a->b->c->d->e->f->h",result.toString());
 
-        testGraph.nodePath.nodePath.clear();
+        testGraph.nodePath.visitHistory.clear();
 
         DotGraph.SearchContext rndContext = testGraph.new SearchContext(testGraph.new RND("a","c"));
         result = rndContext.performSearch();
@@ -60,7 +60,7 @@ public class GraphTest {
         Assert.assertEquals("d->a->b->e->c->f->g->h",result.toString());
 
         //System.out.println("Performing 2nd test: ");
-        testGraph.nodePath.nodePath.clear();
+        testGraph.nodePath.visitHistory.clear();
 
 
         DotGraph.SearchContext dfsContext = testGraph.new SearchContext(testGraph.new DFS("d","h"));

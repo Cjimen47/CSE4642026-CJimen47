@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 
 public class DotGraph {
     Graph<String, DefaultEdge> dotGraph;
-    String title;
     Path nodePath;
 
     enum Algorithm{
@@ -29,7 +28,6 @@ public class DotGraph {
 
     public DotGraph() {
         dotGraph = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
-        title = "null";
         nodePath = new Path();
     }
 
@@ -42,7 +40,6 @@ public class DotGraph {
             Scanner sc = new Scanner(file);
             //Fetch title of graph
             String [] fstLine = sc.nextLine().split(" ");
-            title = fstLine[0];
             //Move onto nodes of graph
 
             while(sc.hasNextLine()){
@@ -74,6 +71,7 @@ public class DotGraph {
             output.append(dotGraph.getEdgeSource(curEdge)).append("->").append(dotGraph.getEdgeTarget(curEdge)).append(";\n");
         }
         output.append("}");
+
         return output.toString();
     }
 
@@ -94,10 +92,7 @@ public class DotGraph {
         if(dotGraph.addVertex(label)){
             return "Node " + label + "successfully added.";
         }
-        else{
             return "Node " + label + "already exists";
-        }
-
     }
 
     public String addNodes(String[] label){
@@ -121,9 +116,8 @@ public class DotGraph {
         if(dotGraph.addEdge(srcLabel, dstLabel) != null){
             return "Source " + srcLabel + " and Destination " + dstLabel + " have been successfully added as an edge.";
         }
-        else{
             return "Source " + srcLabel + " and Destination " + dstLabel + " already exists as an edge.";
-        }
+
     }
 
     //******* Feature 4 *******///
@@ -260,7 +254,6 @@ public class DotGraph {
             Setup();
             InitializeTraversal();
 
-            //Put verify in an if statement
             if(Verify()){
                 while(!statusEmpty()){
                     RetrieveNode();
@@ -291,9 +284,16 @@ public class DotGraph {
             //System.out.println("This is explored: " + explored);
         }
 
+
+
         //Verify that the src and dst exist
         boolean Verify(){
-            if(!nodes.contains(src) || !nodes.contains(dst) || src.equals(dst) || dotGraph.outgoingEdgesOf(src).isEmpty()){
+            final boolean hasSource = nodes.contains(src);
+            final boolean hasDestination = nodes.contains(dst);
+            final boolean sameNode = src.equals(dst);
+            final boolean noPath = dotGraph.outgoingEdgesOf(src).isEmpty();
+
+            if(!hasSource || !hasDestination || sameNode || noPath){
                 //System.out.println("Path cannot be found due to invalid src/dst");
                 nodePath = null;
                 return false;
@@ -400,7 +400,6 @@ public class DotGraph {
                 nodePath.updatePath(v);
                 System.out.println("Visit Node History: " + nodePath.toString());
 
-
                 //System.out.println("v is currently " + v + " and its nodePath is " + nodePath.toString());
                 //System.out.println("This is the explored array " + explored.toString());
 
@@ -421,7 +420,6 @@ public class DotGraph {
             for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
                 edges.add(dotGraph.getEdgeTarget(edge));
             }
-            //System.out.println("These are the edges collected "  + edges.toString());
 
             //push edges onto stack
             for(int i = edges.size(); i > 0; i--){
@@ -473,8 +471,6 @@ public class DotGraph {
             //Add node to path
             nodePath.updatePath(v);
 
-
-
             //Check whether path has been found
             if(v.equals(dst)){
                 found = true;
@@ -487,33 +483,16 @@ public class DotGraph {
 
                 if(con && !dotGraph.outgoingEdgesOf(v).isEmpty()){
                     //Continue down this path
-
                     //Collect the outgoing edges of the current node and assign a random node
-                    for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
-                        //System.out.println("This is the edge we're looking at " + edge.toString());
-                        nextEdges.add(dotGraph.getEdgeTarget(edge));
-                    }
-
-                    //System.out.println("Attempt "+ attempt + " This is what's in nextEdges: " + nextEdges.toString());
-
-                    nextNode = nextEdges.get(randNum.nextInt(nextEdges.size()));
-                    //System.out.println("Attempt "+ attempt + " This is the edge chosen: " + nextNode);
-
-
-                    nextEdges.clear();
-                    //System.out.println("Attempt "+ attempt + " This is the path we're on: " + nodePath.toString());
-
-
-                }
+                    collectEdges();
+                   }
                 else{
                     //Finish traversing down this path
-
                     System.out.println("Attempt " + attempt + " This is the path we found: " + nodePath.toString());
                     //System.out.println("/**********************************************/");
                     ResetPath();
 
                 }
-
 
             }
 
@@ -524,16 +503,10 @@ public class DotGraph {
             v = src; //Start at beginning
 
             //Reset node path
-            nodePath.nodePath.clear(); //Clear nodePath
+            nodePath.visitHistory.clear(); //Clear nodePath
 
             //Collect the outgoing edges of the current node and assign a random node
-            for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
-                nextEdges.add(dotGraph.getEdgeTarget(edge));
-            }
-
-            nextNode = nextEdges.get(randNum.nextInt(nextEdges.size()));
-
-            nextEdges.clear();
+            collectEdges();
 
             //Intitalize new node path
             nodePath.updatePath(v);
@@ -541,6 +514,18 @@ public class DotGraph {
             attempt++;
 
         }
+
+        void collectEdges(){
+            for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                //System.out.println("This is the edge we're looking at " + edge.toString());
+                nextEdges.add(dotGraph.getEdgeTarget(edge));
+            }
+
+            nextNode = nextEdges.get(randNum.nextInt(nextEdges.size()));
+            nextEdges.clear();
+
+        }
+
 
     }
 

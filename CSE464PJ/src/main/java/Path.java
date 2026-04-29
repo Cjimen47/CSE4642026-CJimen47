@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
 public class Path {
-    ArrayList<String> nodePath;
+    ArrayList<String> visitHistory;
 
     public Path(){
-        nodePath = new ArrayList<>();
+        visitHistory = new ArrayList<>();
     }
 
 
     public void updatePath (String node){
-        if(!nodePath.contains(node)){
-            nodePath.add(node);
+        if(!visitHistory.contains(node)){
+            visitHistory.add(node);
 
         }
     }
@@ -18,12 +18,12 @@ public class Path {
     public String toString(){
         StringBuilder output = new StringBuilder();
 
-        for(int i = 0; i < nodePath.size(); i++ ){
-            if(i == nodePath.size() - 1){
-                output.append(nodePath.get(i));
+        for(int i = 0; i < visitHistory.size(); i++ ){
+            if(i == visitHistory.size() - 1){
+                output.append(visitHistory.get(i));
             }
             else{
-                output.append(nodePath.get(i)).append("->");
+                output.append(visitHistory.get(i)).append("->");
 
             }
 

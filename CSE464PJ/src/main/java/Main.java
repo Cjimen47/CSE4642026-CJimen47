@@ -35,7 +35,7 @@ public class Main {
                     nodes = scn.nextLine().split(",");
                     DotGraph.SearchContext bfsContext = userGraph.new SearchContext(userGraph.new BFS(nodes[0],nodes[1]));
                     result = bfsContext.performSearch();
-                    userGraph.nodePath.nodePath.clear();
+                    userGraph.nodePath.visitHistory.clear();
                     break;
 
                 case "2":
@@ -43,14 +43,14 @@ public class Main {
                     nodes = scn.nextLine().split(",");
                     DotGraph.SearchContext dfsContext = userGraph.new SearchContext(userGraph.new DFS(nodes[0],nodes[1]));
                     result = dfsContext.performSearch();
-                    userGraph.nodePath.nodePath.clear();
+                    userGraph.nodePath.visitHistory.clear();
                     break;
                 case "3":
                     System.out.println("Please enter the source and destination node you'd like to do a random search (separate by comma)");
                     nodes = scn.nextLine().split(",");
                     DotGraph.SearchContext rndContext = userGraph.new SearchContext(userGraph.new RND(nodes[0],nodes[1]));
                     result = rndContext.performSearch();
-                    userGraph.nodePath.nodePath.clear();
+                    userGraph.nodePath.visitHistory.clear();
                     break;
                 case "4":
                     System.out.println("You've quit the system, thank you");
