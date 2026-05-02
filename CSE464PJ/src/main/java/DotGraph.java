@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 
 public class DotGraph {
     Graph<String, DefaultEdge> dotGraph;
-    String title;
     Path nodePath;
 
     enum Algorithm{
@@ -29,7 +28,6 @@ public class DotGraph {
 
     public DotGraph() {
         dotGraph = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
-        title = "null";
         nodePath = new Path();
     }
 
@@ -42,7 +40,6 @@ public class DotGraph {
             Scanner sc = new Scanner(file);
             //Fetch title of graph
             String [] fstLine = sc.nextLine().split(" ");
-            title = fstLine[0];
             //Move onto nodes of graph
 
             while(sc.hasNextLine()){
@@ -74,6 +71,7 @@ public class DotGraph {
             output.append(dotGraph.getEdgeSource(curEdge)).append("->").append(dotGraph.getEdgeTarget(curEdge)).append(";\n");
         }
         output.append("}");
+
         return output.toString();
     }
 
@@ -94,10 +92,7 @@ public class DotGraph {
         if(dotGraph.addVertex(label)){
             return "Node " + label + "successfully added.";
         }
-        else{
             return "Node " + label + "already exists";
-        }
-
     }
 
     public String addNodes(String[] label){
@@ -121,9 +116,8 @@ public class DotGraph {
         if(dotGraph.addEdge(srcLabel, dstLabel) != null){
             return "Source " + srcLabel + " and Destination " + dstLabel + " have been successfully added as an edge.";
         }
-        else{
             return "Source " + srcLabel + " and Destination " + dstLabel + " already exists as an edge.";
-        }
+
     }
 
     //******* Feature 4 *******///
@@ -219,111 +213,319 @@ public class DotGraph {
     }
 
     //******* Graph Search *******///
-    public Path GraphSearch(String src, String dst, Algorithm algo){
-        if(algo != Algorithm.BFS && algo != Algorithm.DFS){
-            System.out.println("Invalid Algorithm");
+
+    public interface SearchStrategy{
+        Path Search();
+    }
+
+    class SearchContext {
+        private SearchStrategy strategy;
+
+        public SearchContext(SearchStrategy strategy){
+            this.strategy = strategy;
+        }
+
+        public void setSearchContext (SearchStrategy strategy){
+            this.strategy = strategy;
+        }
+
+        public Path performSearch(){
+            return strategy.Search();
+        }
+
+    }
+
+
+    abstract class GraphSearch implements SearchStrategy{
+        String src;
+        String dst;
+        List<String> nodes;
+        ArrayList<Boolean> explored;
+        String v;
+
+        GraphSearch(String src, String dst){
+            this.src = src;
+            this.dst = dst;
+        }
+
+        public final Path Search(){
+            //System.out.println("Beginning Graph Traversal");
+
+            Setup();
+            InitializeTraversal();
+
+            if(Verify()){
+                while(!statusEmpty()){
+                    RetrieveNode();
+                    TraverseNode();
+                }
+            }
+
             return nodePath;
         }
 
-        List<String> nodes = Arrays.asList(Arrays.copyOf(dotGraph.vertexSet().toArray(), dotGraph.vertexSet().toArray().length, String[].class));
-        ArrayList<Boolean> explored = new ArrayList<>();
-        String v;
+        abstract void InitializeTraversal();
+        abstract boolean statusEmpty();
+        abstract void RetrieveNode();
+        abstract void TraverseNode();
+        //abstract void Traverse();
 
-        for(int i = 0; i < nodes.size(); i++){
-            explored.add(false);
+        //Set up the objects that will be needed for both graph traversals
+        void Setup(){
+            //System.out.println("We enter set up");
+            nodes = Arrays.asList(Arrays.copyOf(dotGraph.vertexSet().toArray(), dotGraph.vertexSet().toArray().length, String[].class));
+            explored = new ArrayList<>();
+
+            for(int i = 0; i < nodes.size(); i++){
+                explored.add(false);
+            }
+
+            //System.out.println("This is nodes: " + nodes);
+            //System.out.println("This is explored: " + explored);
         }
 
-        if(!nodes.contains(src) || !nodes.contains(dst) || src.equals(dst) || dotGraph.outgoingEdgesOf(src).isEmpty()){
-            return null;
+
+
+        //Verify that the src and dst exist
+        boolean Verify(){
+            final boolean hasSource = nodes.contains(src);
+            final boolean hasDestination = nodes.contains(dst);
+            final boolean sameNode = src.equals(dst);
+            final boolean noPath = dotGraph.outgoingEdgesOf(src).isEmpty();
+
+            if(!hasSource || !hasDestination || sameNode || noPath){
+                //System.out.println("Path cannot be found due to invalid src/dst");
+                nodePath = null;
+                return false;
+            }
+
+            return true;
         }
 
-        if(algo.equals(Algorithm.BFS)){
-            //Create a queue
-            Queue<String> Q = new LinkedList<>();
 
+    }
+
+    class BFS extends GraphSearch{
+        Queue<String> Q = new LinkedList<>();
+
+        BFS(String src, String dst) {
+            super(src, dst);
+        }
+
+        @Override
+        void InitializeTraversal(){
             //Label the root as explored
             explored.set(nodes.indexOf(src), true);
             //Add Root to queue
             Q.add(src);
             nodePath.updatePath(src);
 
-            while (!Q.isEmpty()) {
-                v = Q.remove();
-
-                Object[] children = dotGraph.outgoingEdgesOf(v).toArray();
-
-                for (DefaultEdge edge : dotGraph.outgoingEdgesOf(v)) {
-                    if (explored.get(nodes.indexOf(dotGraph.getEdgeTarget(edge))) != false) {
-                        explored.set(nodes.indexOf(dotGraph.getEdgeTarget(edge)), true);
-                    }
-
-                    nodePath.updatePath(dotGraph.getEdgeTarget(edge));
-
-                    if (dotGraph.getEdgeTarget(edge).equals(dst)) {
-                        //System.out.println("When we make it in here the queue looks like this? " + Q.toString());
-                        return nodePath;
-                    }
-
-                    Q.add(dotGraph.getEdgeTarget(edge));
-                }
-
-                //System.out.println("Parent v is " + v + " and this is the current path is " + nodePath.toString());
-                //System.out.println("This is currently the queue " + Q.toString());
-
-            }
-
-            return nodePath;
-
-        } else if (algo.equals(Algorithm.DFS)) {
-            //System.out.println("We enter dfs");
-            //Create a stack
-            Stack<String> S = new Stack<>();
-
-
-            //Push the src onto stack
-            v = src;
-            S.push(v);
-
-            while(!S.empty()){
-                v = S.pop();
-
-                if(explored.get(nodes.indexOf(v)) != true){
-                    explored.set(nodes.indexOf(v), true);
-                    nodePath.updatePath(v);
-
-                    //System.out.println("v is currently " + v + " and its nodePath is " + nodePath.toString());
-                    //System.out.println("This is the explored array " + explored.toString());
-
-                    if(v.equals(dst)){
-                        return nodePath;
-                    }
-
-                }
-                else{
-                    continue;
-                }
-                //System.out.println("v is currently " + v + " and its outgoing edges are " + dotGraph.outgoingEdgesOf(v).toString());
-
-                ArrayList<String> edges = new ArrayList<>();
-
-                //collect edges
-                for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
-                    edges.add(dotGraph.getEdgeTarget(edge));
-                }
-                //System.out.println("These are the edges collected "  + edges.toString());
-
-                //push edges onto stack
-                for(int i = edges.size(); i > 0; i--){
-                    S.push(edges.get(i-1));
-                }
-
-            }
-
-            return nodePath;
 
         }
 
-        return nodePath;
+        @Override
+        boolean statusEmpty(){
+            //System.out.println(Q.isEmpty());
+            return Q.isEmpty();
+        }
+
+        @Override
+        void RetrieveNode(){
+            v = Q.remove();
+            //System.out.println("This is the node we are traversing with: " + v);
+
+        }
+
+        @Override
+        void TraverseNode(){
+
+            for (DefaultEdge edge : dotGraph.outgoingEdgesOf(v)) {
+                if (explored.get(nodes.indexOf(dotGraph.getEdgeTarget(edge))) != false) {
+                    explored.set(nodes.indexOf(dotGraph.getEdgeTarget(edge)), true);
+                }
+
+                nodePath.updatePath(dotGraph.getEdgeTarget(edge));
+
+                if (dotGraph.getEdgeTarget(edge).equals(dst)) {
+
+                    Q.clear();
+
+                    System.out.println("Visit Node History: " + nodePath.toString());
+                    System.out.println("Found target node: " + dotGraph.getEdgeTarget(edge));
+
+                    return;
+                }
+
+                Q.add(dotGraph.getEdgeTarget(edge));
+                System.out.println("Visit Node History: " + nodePath.toString());
+            }
+
+            //System.out.println("This is the queue we are traversing with: " + Q.toString());
+
+
+        }
+
+    }
+
+    class DFS extends GraphSearch{
+        Stack<String> S = new Stack<>();
+
+        DFS(String src, String dst) {
+            super(src, dst);
+        }
+
+        //Prepare to begin to traverse graph
+        @Override
+        void InitializeTraversal(){
+            v = src;
+            S.push(v);
+        }
+
+        @Override
+        boolean statusEmpty(){
+            //System.out.println("Is the stack empty? " + S.empty());
+            return S.empty();
+        }
+
+        @Override
+        void RetrieveNode(){
+            v = S.pop();
+        }
+
+        @Override
+        void TraverseNode(){
+
+            if(explored.get(nodes.indexOf(v)) != true){
+                explored.set(nodes.indexOf(v), true);
+                nodePath.updatePath(v);
+                System.out.println("Visit Node History: " + nodePath.toString());
+
+                //System.out.println("v is currently " + v + " and its nodePath is " + nodePath.toString());
+                //System.out.println("This is the explored array " + explored.toString());
+
+                if(v.equals(dst)){
+                    //System.out.println("Path Found");
+                    S.clear();
+                    System.out.println("Found target node: " + v);
+
+                    return;
+                }
+            }
+            else{
+                return;
+            }
+            //System.out.println("v is currently " + v + " and its outgoing edges are " + dotGraph.outgoingEdgesOf(v).toString());
+            ArrayList<String> edges = new ArrayList<>();
+            //collect edges
+            for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                edges.add(dotGraph.getEdgeTarget(edge));
+            }
+
+            //push edges onto stack
+            for(int i = edges.size(); i > 0; i--){
+                S.push(edges.get(i-1));
+            }
+
+        }
+
+
+    }
+
+    class RND extends GraphSearch{
+        List<String> nextEdges = new ArrayList<>();
+        String nextNode;
+        Random randNum = new Random();
+        int attempt = 0;
+        boolean con;
+        boolean found;
+
+        RND(String src, String dst) {
+            super(src, dst);
+        }
+
+        @Override
+        void InitializeTraversal(){
+            //Make the first node to be traversed be the source
+
+            //System.out.println("This is the first initial reset");
+
+            ResetPath();
+
+        }
+
+        @Override
+        boolean statusEmpty(){
+            return found;
+
+        }
+
+        @Override
+        void RetrieveNode(){
+            v = nextNode;
+            //System.out.println("This is the node we're traversing with: " + v);
+
+        }
+
+        @Override
+        void TraverseNode(){
+            //Add node to path
+            nodePath.updatePath(v);
+
+            //Check whether path has been found
+            if(v.equals(dst)){
+                found = true;
+                System.out.println("This is the path we ended with: " + nodePath.toString());
+
+            }
+            else{
+                //Else decide if we continue
+                con = randNum.nextBoolean();
+
+                if(con && !dotGraph.outgoingEdgesOf(v).isEmpty()){
+                    //Continue down this path
+                    //Collect the outgoing edges of the current node and assign a random node
+                    collectEdges();
+                   }
+                else{
+                    //Finish traversing down this path
+                    System.out.println("Attempt " + attempt + " This is the path we found: " + nodePath.toString());
+                    //System.out.println("/**********************************************/");
+                    ResetPath();
+
+                }
+
+            }
+
+        }
+
+        void ResetPath(){
+            //System.out.println("We've reset the path");
+            v = src; //Start at beginning
+
+            //Reset node path
+            nodePath.visitHistory.clear(); //Clear nodePath
+
+            //Collect the outgoing edges of the current node and assign a random node
+            collectEdges();
+
+            //Intitalize new node path
+            nodePath.updatePath(v);
+
+            attempt++;
+
+        }
+
+        void collectEdges(){
+            for(DefaultEdge edge : dotGraph.outgoingEdgesOf(v)){
+                //System.out.println("This is the edge we're looking at " + edge.toString());
+                nextEdges.add(dotGraph.getEdgeTarget(edge));
+            }
+
+            nextNode = nextEdges.get(randNum.nextInt(nextEdges.size()));
+            nextEdges.clear();
+
+        }
+
 
     }
 
